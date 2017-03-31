@@ -1,0 +1,38 @@
+[
+	{
+		"nome" : "Pokemon1",
+		"poder" : 20,
+		"vida" : 200,
+		"defesa" : 12
+	},
+	{
+		"nome" : "Pokemon2",
+		"poder" : 25,
+		"vida" : 100,
+		"defesa" : 10
+	},
+	{
+		"nome" : "Pokemon3",
+		"poder" :30,
+		"vida" : 80,
+		"defesa" : 10
+	},
+	{
+		"nome" : "Pokemon4",
+		"poder" : 10,
+		"vida" : 500,
+		"defesa" : 8
+	},
+	{
+		"nome" : "Pokemon5",
+		"poder" : 15,
+		"vida" : 300,
+		"defesa" : 10
+	},
+	{
+		"nome" : "Pokemon6",
+		"poder" : 15,
+		"vida" : 300,
+		"defesa" : 10
+	}
+]
