@@ -19,16 +19,22 @@ with open('inspermonscommon.json') as arquivo:
     for ipmon in inspermons:
         mostra_ipmon(ipmon)
     
-"""valores = inspermons.values()
-if 'Jogador Principal' in valores:
-     = str(input("Qual é o seu nome?"))""" #Tentativa de trocar o "Jogador Principal" pelo nome do jogador
+#valores = inspermons.values()
+#if 'Jogador Principal' in valores:
+     #= str(input("Qual é o seu nome?"))""" #Tentativa de trocar o "Jogador Principal" pelo nome do jogador
      
 #Desenvolvendo o jogo:
     
 import random
 #If escolha==passear:
-sorte = random.randint(0, len(inspermons))
+sorte = random.randint(1, len(inspermons))
 print("Prepare-se! Você acabou de encontrar o jogador %s! É hora de batalhar!" %(inspermons[sorte]['nome']))
+
+Inspèrdex = dict()
+jogador_encontrado = inspermons[sorte]
+Inspèrdex = [inspermons[sorte]]
+
+
 
     
 
