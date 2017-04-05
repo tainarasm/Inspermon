@@ -34,6 +34,14 @@ Inspèrdex = dict()
 jogador_encontrado = inspermons[sorte]
 Inspèrdex = [inspermons[sorte]]
 
+#evoluindo Inspermóns
+#fazer algo para sair do loop assim que subir de nível
+if inspermons[0]['vida']>300:
+    for sobe_nivel in range(1001):
+        print("Parabéns! Você subiu de nível! Agora, você faz parte do seleto grupo de inspermons que conseguem alcançar o %dº nível! Boa sorte!" %(sobe_nivel))
+    
+    
+
 
 
     
