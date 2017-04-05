@@ -1,50 +1,100 @@
 [
 	{
-		"nome" : "Pokemon1",
+		"nome" : "Jogador Principal",
 		"poder" : 20,
 		"vida" : 200,
-		"defesa" : 12
+		"defesa" : 12,
+		"Inspercash" : 100
 	},
 	{
-		"nome" : "Pokemon2",
+		"nome" : "Victor",
+		"poder" : 20,
+		"vida" : 200,
+		"defesa" : 12,
+       "Inspercash" : 100
+	},
+	{
+		"nome" : "Daniel",
 		"poder" : 25,
 		"vida" : 100,
-		"defesa" : 10
+		"defesa" : 10,
+		"Inspercash" : 100
 	},
 	{
-		"nome" : "Pokemon3",
-		"poder" :30,
+		"nome" : "Luciano",
+       "poder" : 30,
 		"vida" : 80,
-		"defesa" : 10
+		"defesa" : 10,
+		"Inspercash" : 100
 	},
 	{
-		"nome" : "Pokemon4",
+		"nome" : "Pelicano",
 		"poder" : 10,
 		"vida" : 500,
-		"defesa" : 8
+		"defesa" : 8,
+		"Inspercash": 100
 	},
 	{
-		"nome" : "Pokemon5",
+		"nome" : "Carareto",
 		"poder" : 15,
 		"vida" : 300,
-		"defesa" : 10
+		"defesa" : 10,
+		"Inspercash" : 100
 	},
 	{
-		"nome" : "Pokemon6",
+		"nome" : "Fernando",
 		"poder" : 15,
 		"vida" : 300,
-		"defesa" : 10
-	}
+		"defesa" : 10,
+		"Inspercash" : 100
+	},
 	{
 		"nome" : "Pokemon7",
 		"poder" : 15,
 		"vida" : 300,
-		"defesa" : 10
+		"defesa" : 10,
+		"Inspercash" : 100
 	},
 	{
 		"nome" : "Pokemon8",
 		"poder" : 15,
 		"vida" : 300,
-		"defesa" : 10
-	}
+		"defesa" : 10,
+		"Inspercash" : 100
+	},
+	{
+		"nome" : "Pokemon8",
+		"poder" : 15,
+		"vida" : 300,
+		"defesa" : 10,
+		"Inspercash" : 100
+	},
+	{
+		"nome" : "Pokemon8",
+		"poder" : 15,
+		"vida" : 300,
+		"defesa" : 10,
+		"Inspercash" : 100
+    },
+	{
+		"nome" : "Pokemon8",
+		"poder" : 15,
+		"vida" : 300,
+		"defesa" : 10,
+		"Inspercash" : 100
+    },
+	{
+		"nome" : "Pokemon8",
+		"poder" : 15,
+		"vida" : 300,
+		"defesa" : 10,
+		"Inspercash" : 100
+    },
+	{
+		"nome" : "Pokemon8",
+		"poder" : 15,
+		"vida" : 300,
+		"defesa" : 10,
+		"Inspercash" : 100
+    }
 ]
