@@ -45,12 +45,8 @@
 		"nome" : "Fernando",
 		"poder" : 15,
 		"vida" : 300,
-<<<<<<< HEAD
 		"defesa" : 10,
 		"Inspercash" : 100
-=======
-		"defesa" : 10
->>>>>>> 40b8112fddba96772912ed1e45f8626a3e455faa
 	},
 	{
 		"nome" : "Pokemon7",
