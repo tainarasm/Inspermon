@@ -20,12 +20,16 @@ with open('inspermonscommon.json') as arquivo:
     for ipmon in inspermons:
         mostra_ipmon(ipmon)
 
-import tkinter as Tk:
-    window = Tk.tkinter
-    salvar = tk.Button(window)
-    salvar.configure(text='Salvar')
-    salvar.grid()
-    window.mainloop()
+
+print(inspermons[0]['vida'])
+
+"""import tkinter as tk
+
+window = tk.Tk()
+salvar = tk.Button(window)
+salvar.configure(text='Salvar')
+salvar.grid()
+window.mainloop()"""
 
     
 #valores = inspermons.values()
@@ -38,11 +42,13 @@ import tkinter as Tk:
 
 import random
 #If escolha==passear:
-sorte = random.randint(1, len(inspermons))
+sorte = random.randint(1, len(inspermons)-1)
 print("Prepare-se! Você acabou de encontrar o jogador %s! É hora de batalhar!" %(inspermons[sorte]['nome']))
 
 
-def batalha(inspermons[0]['vida'], inspermons[sorte]['vida']):
+
+
+"""def batalha(inspermons):
     while inspermons[0]['vida']>0 and inspermons[sorte]['vida']>0:
         inspermons[sorte]['vida'] = inspermons[sorte]['vida']-inspermons[0]['poder']-inspermons[sorte]['defesa']
         if inspermons[sorte]['defesa']<=0:
@@ -68,7 +74,7 @@ if inspermons[0]['vida']>300:
 
 # salvar jogo
 
-def salvar_jogo():
+#def salvar_jogo():"""
 
 
 
@@ -81,5 +87,4 @@ def salvar_jogo():
 
 
 
-    
     
