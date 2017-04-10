@@ -1,7 +1,24 @@
 
 import random
 import time
+import json
+# import winsound
+# winsound.PlaySound('Pokemon Sound Effect.mp3', winsound.SND_FILENAME)
+def mostra_ipmon(ipmon):
+    print("Inspermon : {0}".format(ipmon["nome"]))
+    print("poder = {0}".format(ipmon["poder"]))
+    print("vida = {0}".format(ipmon["vida"]))
+    print("defesa = {0}".format(ipmon["defesa"]))
+    print("Inspercash = {0}\n".format(ipmon["Inspercash"]))
 
+with open('inspermonscommon.json') as arquivo:
+    inspermons = json.load(arquivo)
+    # for ipmon in inspermons:
+    #     mostra_ipmon(ipmon)
+
+import random
+#If escolha==passear:
+sorte = random.randint(1, len(inspermons)-1)
 def main():
     """DAR BOAS VINDAS AO JOGADOR"""
 
@@ -9,27 +26,29 @@ def main():
     print("\n\nOla, {0}".format(Nome_jogador))
     if input()=="":
         print("\nBem vindo ao inspermon!! ")
-    time.sleep(1.5)
     if input()=="":
         print("Antes de adentrar o Insper, voce deve estar ciente das regras do jogo ")
-    time.sleep(3)
     if input()=="":
         print("Funciona assim cada dia de insper voce podera escolher oque voce gostaria de fazer \r Por exemplo ir estudar\n Ou ir relxar um pouco")
-    time.sleep(3)
     if input()=="":
         print("Logico cada ponto tem suas vantagens.\r Se voce escolher estudar, voce melhora suas capacidades")
-    time.sleep(3)
     if input()=="":
         print("Porem o jogo nao e tao facil assim!!\r Ao caminhar pelo Insper voce podera se deparar com outros Inspermons e tera de batalhar com eles.")
+    if input()=="":
+        print("Voce esta preparado??")
     time.sleep(3)
-    play_again = True
-    # Loop de player
-    while play_again:
-        winner = None
-        player_health = 100
-        computer_health = 100
 
-        # determina quem joga
+    play_again = True
+    # Loop do jogador na primeira linha 
+    while play_again:
+        sorte = random.randint(1, len(inspermons)-1)
+        print("Prepare-se! Você acabou de encontrar o jogador %s! É hora de batalhar!" %(inspermons[sorte]['nome']))
+        if input()=="":
+            winner = None
+            player_health = inspermons[0]['vida']
+            computer_health = inspermons[sorte]['vida']
+
+        # determina quem joga segunda linha
         turn = random.randint(1,2) # 50%
         if turn == 1:
             player_turn = True
@@ -52,12 +71,15 @@ def main():
             miss = False
 
             # dicionario
-            moves = {"Soco": random.randint(18, 25),
-                     "Soco Mais forte": random.randint(10, 35),
+            moves_player = {"Soco": inspermons[0]['poder'],
+                     "Soco Mais forte": inspermons[0]['Soco Mais forte'],
+                     "Recuperar vida": random.randint(20, 25)}
+            moves_computer = {"Soco": inspermons[sorte]['poder'],
+                     "Soco Mais forte": inspermons[sorte]['Soco Mais forte'],
                      "Recuperar vida": random.randint(20, 25)}
 
             if player_turn:
-                print("\nSelecione seu movimento :\n1. Soco (damage between 18-25)\n2. Soco Mais Forte (damage between 10-35)\n3. Recuperar Vida (between 20-25 health)\n")
+                print("\nSelecione seu movimento :\n1. Soco (damage equivalente a seu poder)\n2. Soco Mais Forte (equivalente a seu poder + 5 de dano)\n3. Recuperar Vida (Voce pode recuperar de 20 ate 25 de vida)\n")
 
                 player_move = input("> ").lower()
 
@@ -73,16 +95,16 @@ def main():
                     time.sleep(1)
                 else:
                     if player_move in ("1", "Soco"):
-                        player_move = moves["Soco"]
+                        player_move = moves_player["Soco"]
                         print("\nSOCO NA CARA ", player_move, " damage.")
                         time.sleep(1)
                     elif player_move in ("2", "Soco Mais forte"):
-                        player_move = moves["Soco Mais forte"]
+                        player_move = moves_player["Soco Mais forte"]
                         print("\nMEGA SOCO NA CARA", player_move, " damage.")
                         time.sleep(1)
                     elif player_move in ("3", "Recuperar vida"):
                         heal_up = True
-                        player_move = moves["Recuperar vida"]
+                        player_move = moves_player["Recuperar vida"]
                         print("\nRECUPEROU VIDA", player_move, " Recuperar vida.")
                         time.sleep(1)
                     else:
@@ -105,39 +127,39 @@ def main():
                 else:
                     if computer_health > 30: 
                         if player_health > 75:
-                            computer_move = moves["Soco"]
+                            computer_move = moves_computer["Soco"]
                             print("\n O computador usou SOCO NA CARA ", computer_move, " damage.")
                             time.sleep(1.5)
                         elif player_health > 35 and player_health <= 75: 
                             imoves = ["Soco", "Soco Mais forte"]
                             imoves = random.choice(imoves)
-                            computer_move = moves[imoves]
+                            computer_move = moves_computer[imoves]
                             print("\nO computador deu Soco Mais forte ", imoves, ". It dealt ", computer_move, " damage.")
                             time.sleep(1.5)
                         elif player_health <= 35:
-                            computer_move = moves["Soco Mais forte"]
+                            computer_move = moves_computer["Soco Mais forte"]
                             print("\nO computador deu um Soco Mais forte ", computer_move, " damage.")                       
                             time.sleep(1.5)
                     else:#se tiver com pouca vida 50% de recuperar vida
                         heal_or_fight = random.randint(1,2) 
                         if heal_or_fight == 1:
                             heal_up = True
-                            computer_move = moves["Recuperar vida"]
+                            computer_move = moves_computer["Recuperar vida"]
                             print("\nO computador utilizou Recuperar vida. ", computer_move, " health.")
                             time.sleep(1.5)
                         else:
                             if player_health > 75:
-                                computer_move = moves["Soco"]
+                                computer_move = moves_computer["Soco"]
                                 print("\nO computador utilizou Soco.", computer_move, " damage.")
                                 time.sleep(2.5)
                             elif player_health > 35 and player_health <= 75:
                                 imoves = ["Soco", "Soco Mais forte"]
                                 imoves = random.choice(imoves)
-                                computer_move = moves[imoves]
+                                computer_move = moves_computer[imoves]
                                 print("\nO computador utilizou Soco Mais forte", imoves, ". It dealt ", computer_move, " damage.")
                                 time.sleep(2.5)
                             elif player_health <= 35:
-                                computer_move = moves["Soco Mais forte"]
+                                computer_move = moves_computer["Soco Mais forte"]
                                 print("\nO computador utulizou Soco Mais forte. Para finalizar ", computer_move, " damage.")
                                 time.sleep(2.5)
             if heal_up:
