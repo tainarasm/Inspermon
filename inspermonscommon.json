@@ -2,7 +2,7 @@
 	{
 		"nome" : "Jogador Principal",
 		"poder" : 20,
-		"super poder" : 25,
+		"Soco Mais forte" : 25,
 		"vida" : 200,
 		"defesa" : 12,
 		"Inspercash" : 100
@@ -10,7 +10,7 @@
 	{
 		"nome" : "Victor",
 		"poder" : 20,
-		"super poder" : 25,
+		"Soco Mais forte" : 25,
 		"vida" : 200,
 		"defesa" : 12,
        "Inspercash" : 100
@@ -18,7 +18,7 @@
 	{
 		"nome" : "Daniel",
 		"poder" : 25,
-		"super poder" : 30,
+		"Soco Mais forte" : 30,
 		"vida" : 100,
 		"defesa" : 10,
 		"Inspercash" : 100
@@ -26,7 +26,7 @@
 	{
 		"nome" : "Luciano",
         "poder" : 30,
-        "super poder" : 35,
+        "Soco Mais forte" : 35,
 		"vida" : 80,
 		"defesa" : 10,
 		"Inspercash" : 100
@@ -34,7 +34,7 @@
 	{
 		"nome" : "Pelicano",
 		"poder" : 10,
-		"super poder" : 15,
+		"Soco Mais forte" : 15,
 		"vida" : 500,
 		"defesa" : 8,
 		"Inspercash": 100
@@ -42,7 +42,7 @@
 	{
 		"nome" : "Carareto",
 		"poder" : 15,
-		"super poder" : 20,
+		"Soco Mais forte" : 20,
 		"vida" : 300,
 		"defesa" : 10,
 		"Inspercash" : 100
@@ -50,7 +50,7 @@
 	{
 		"nome" : "Fernando",
 		"poder" : 15,
-		"super poder" : 20,
+		"Soco Mais forte" : 20,
 		"vida" : 300,
 		"defesa" : 10,
 		"Inspercash" : 100
@@ -58,7 +58,7 @@
 	{
 		"nome" : "Pokemon7",
 		"poder" : 15,
-		"super poder" : 20,
+		"Soco Mais forte" : 20,
 		"vida" : 300,
 		"defesa" : 10,
 		"Inspercash" : 100
@@ -66,7 +66,7 @@
 	{
 		"nome" : "Pokemon8",
 		"poder" : 15,
-		"super poder" : 20,
+		"Soco Mais forte" : 20,
 		"vida" : 300,
 		"defesa" : 10,
 		"Inspercash" : 100
@@ -74,7 +74,7 @@
 	{
 		"nome" : "Pokemon8",
 		"poder" : 15,
-		"super poder" : 20,
+		"Soco Mais forte" : 20,
 		"vida" : 300,
 		"defesa" : 10,
 		"Inspercash" : 100
@@ -82,7 +82,7 @@
 	{
 		"nome" : "Pokemon8",
 		"poder" : 15,
-		"super poder" : 20,
+		"Soco Mais forte" : 20,
 		"vida" : 300,
 		"defesa" : 10,
 		"Inspercash" : 100
@@ -90,7 +90,7 @@
 	{
 		"nome" : "Pokemon8",
 		"poder" : 15,
-		"super poder" : 20,
+		"Soco Mais forte" : 20,
 		"vida" : 300,
 		"defesa" : 10,
 		"Inspercash" : 100
@@ -98,7 +98,7 @@
 	{
 		"nome" : "Pokemon8",
 		"poder" : 15,
-		"super poder" : 20,
+		"Soco Mais forte" : 20,
 		"vida" : 300,
 		"defesa" : 10,
 		"Inspercash" : 100
@@ -106,7 +106,7 @@
 	{
 		"nome" : "Pokemon8",
 		"poder" : 15,
-		"super poder" : 20,
+		"Soco Mais forte" : 20,
 		"vida" : 300,
 		"defesa" : 10,
 		"Inspercash" : 100
