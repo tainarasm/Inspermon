@@ -5,31 +5,115 @@ Created on Fri Mar 31 10:39:43 2017
 @author: nielton
 """
 
+    
 import json
+import tkinter as menu
+import random
+import shelve
+
+    
 
 
-def mostra_ipmon(ipmon):
-    print("Inspermon : {0}".format(ipmon["nome"]))
-    print("poder = {0}".format(ipmon["poder"]))
-    print("vida = {0}".format(ipmon["vida"]))
-    print("defesa = {0}".format(ipmon["defesa"]))
-    print("Inspercash = {0}\n".format(ipmon["Inspercash"]))
 
-with open('inspermonscommon.json') as arquivo:
-    inspermons = json.load(arquivo)
-    for ipmon in inspermons:
-        mostra_ipmon(ipmon)
+window = menu.Tk()
+passear = menu.Button(window)
+passear.configure(text='Passear')
+passear.grid()
+salvar = menu.Button(window)
+salvar.configure(text='Salvar e Sair do Jogo')
+salvar.configure(command=save)
+salvar.grid()
+salvar.bind("<Button-1>", save)
+dormir = menu.Button(window)
+dormir.configure(text='Dormir')
+dormir.grid()
+
+window.mainloop()
+
+class Inspermon:
+    def __init__(self):
+        def mostra_ipmon(ipmon):
+            print("Inspermon : {0}".format(ipmon["nome"]))
+            print("categoria : {0}".format(ipmon["categoria"]))
+            print("poder = {0}".format(ipmon["poder"]))
+            print("soco mais forte = {0}".format(ipmon["Soco Mais forte"]))
+            print("vida = {0}".format(ipmon["vida"]))
+            print("defesa = {0}".format(ipmon["defesa"]))
+            print("Inspercash = {0}\n".format(ipmon["Inspercash"]))
+
+        with open('inspermons_listacompleta.json') as arquivo:
+            inspermons = json.load(arquivo)
+            for ipmon in inspermons:
+                mostra_ipmon(ipmon)
+
+        self.personagens = inspermons
+        
+inicia_jogo = Inspermon()
+
+
+    def sorte()
+
+class InsperStore:
+    def __init__(self):
+        self.products = {'Café Mega Power' : 15, 'Energético' : 10, 'Exercício milimetralmente bem feito' : 45, 'Prova impecável' : 100, 'Noite de sono de mais de 8h' : 30}
+
+Produtos = InsperStore()
+print(Produtos.products)
+
+
+
+# lista de produtos (InsperStore)
+# Café Mega Power (15)
+# Energético (10)
+# Exercício milimetralmente bem feito (45)
+# Prova impecável (100)
+# Noite de sono de mais de 8h (30)
+
+
+#with open('inspermonprincipal.json') as arquivo:
+    #inspermon_principal = json.load(arquivo)
+    #for ipmonprincipal in inspermon_principal:
+        #mostra_ipmon(ipmonprincipal)
+
+
+
+
+
+
+
+print(inspermon_principal)
+        
+"""def carrega_jogo(salvar_jogo):
+    print("Inspermon : {0}".format(salvar_jogo["nome"]))
+    print("poder = {0}".format(salvar_jogo["poder"]))
+    print("vida = {0}".format(salvar_jogo["vida"]))
+    print("defesa = {0}".format(salvar_jogo["defesa"]))
+    print("Inspercash = {0}\n".format(salvar_jogo["Inspercash"]))
+    
+#with open('Save Inspermons.txt', "rw") as carregajogo:"""
+    
 
 
 print(inspermons[0]['vida'])
 
-"""import tkinter as tk
+def save(inspermons, Inspérdex):
+    with open('inspermonprincipal.json') as arquivo:
+        arquivo.write(inspermon_principal)
+        arquivo.write(Inspèrdex)
 
-window = tk.Tk()
-salvar = tk.Button(window)
-salvar.configure(text='Salvar')
-salvar.grid()
-window.mainloop()"""
+
+
+    
+
+
+
+
+                  
+
+
+
+
+#inserindo música
 
     
 #valores = inspermons.values()
@@ -40,7 +124,6 @@ window.mainloop()"""
     
 #ideia: inserir janela com as opções de passear, dormir e alguma outra que se queira inserir
 
-import random
 #If escolha==passear:
 sorte = random.randint(1, len(inspermons)-1)
 print("Prepare-se! Você acabou de encontrar o jogador %s! É hora de batalhar!" %(inspermons[sorte]['nome']))
@@ -48,7 +131,7 @@ print("Prepare-se! Você acabou de encontrar o jogador %s! É hora de batalhar!"
 
 
 
-"""def batalha(inspermons):
+def batalha(inspermons):
     while inspermons[0]['vida']>0 and inspermons[sorte]['vida']>0:
         inspermons[sorte]['vida'] = inspermons[sorte]['vida']-inspermons[0]['poder']-inspermons[sorte]['defesa']
         if inspermons[sorte]['defesa']<=0:
@@ -61,7 +144,6 @@ print("Prepare-se! Você acabou de encontrar o jogador %s! É hora de batalhar!"
 
 
 
-Inspèrdex = dict()
 jogador_encontrado = inspermons[sorte]
 Inspèrdex = [inspermons[sorte]]
 
