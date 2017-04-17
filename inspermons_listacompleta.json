@@ -1,21 +1,11 @@
 [
 	{
-		"nome" : "Jogador Principal",
-		"categoria" : "Aluno",
-		"poder" : 20,
-		"Soco Mais forte" : 25,
-		"vida" : 200,
-		"defesa" : 12,
-		"Inspercash" : 100
-	},
-	{
 		"nome" : "Victor",
 		"categoria" : "Professor",
 		"poder" : 20,
 		"Soco Mais forte" : 25,
 		"vida" : 200,
-		"defesa" : 12,
-       "Inspercash" : 100
+		"defesa" : 12
 	},
 	{
 		"nome" : "Daniel",
@@ -23,17 +13,15 @@
 		"poder" : 25,
 		"Soco Mais forte" : 30,
 		"vida" : 100,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"defesa" : 10
 	},
 	{
 		"nome" : "Luciano",
 		"categoria" : "Professor",
-        "poder" : 30,
-        "Soco Mais forte" : 35,
-		"vida" : 80,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"poder" : 20,
+		"Soco Mais forte" : 25,
+		"vida" : 200,
+		"defesa" : 12
 	},
 	{
 		"nome" : "Pelicano",
@@ -41,8 +29,7 @@
 		"poder" : 10,
 		"Soco Mais forte" : 15,
 		"vida" : 500,
-		"defesa" : 8,
-		"Inspercash": 100
+		"defesa" : 8
 	},
 	{
 		"nome" : "Carareto",
@@ -50,8 +37,7 @@
 		"poder" : 15,
 		"Soco Mais forte" : 20,
 		"vida" : 300,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"defesa" : 10
 	},
 	{
 		"nome" : "Fernando",
@@ -59,8 +45,7 @@
 		"poder" : 15,
 		"Soco Mais forte" : 20,
 		"vida" : 300,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"defesa" : 10
 	},
 	{
 		"nome" : "Ninja raivoso",
@@ -68,8 +53,7 @@
 		"poder" : 15,
 		"Soco Mais forte" : 20,
 		"vida" : 300,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"defesa" : 10
 	},
 	{
 		"nome" : "Ninja de boa",
@@ -77,44 +61,39 @@
 		"poder" : 15,
 		"Soco Mais forte" : 20,
 		"vida" : 300,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"defesa" : 10
 	},
 	{
-		"nome" : "Monitor de laboratório",
+		"nome" : "Monitor de laboratorio",
 		"categoria" : "Monitor",
 		"poder" : 15,
 		"Soco Mais forte" : 20,
 		"vida" : 300,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"defesa" : 10
 	},
 	{
 		"nome" : "Python",
-		"categoria" : "Programação",
+		"categoria" : "Programacao",
 		"poder" : 15,
 		"Soco Mais forte" : 20,
 		"vida" : 300,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"defesa" : 10
     },
 	{
-		"nome" : "Organização Estudantil",
+		"nome" : "Organizacao Estudantil",
 		"categoria" : "Entidade",
 		"poder" : 15,
 		"Soco Mais forte" : 20,
 		"vida" : 300,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"defesa" : 10
     },
 	{
-		"nome" : "Ressaca insana pós festa",
+		"nome" : "Ressaca insana pos festa",
 		"categoria" : "Festa",
 		"poder" : 15,
 		"Soco Mais forte" : 20,
 		"vida" : 300,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"defesa" : 10
     },
 	{
 		"nome" : "Semana de provas",
@@ -122,8 +101,7 @@
 		"poder" : 15,
 		"Soco Mais forte" : 20,
 		"vida" : 300,
-		"defesa" : 10,
-		"Inspercash" : 100
+		"defesa" : 10
     },
     {
 		"nome" : "Aluno-Zumbi",
@@ -131,7 +109,6 @@
 		"poder" : 15,
 		"Soco Mais forte" : 20,
 		"vida" : 300,
-		"defesa" : 10,
-		"Inspercash" : 100
-    },
+		"defesa" : 10
+    }
 ]
