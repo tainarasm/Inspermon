@@ -1,0 +1,11 @@
+[
+	{
+		"nome" : "Jogador Principal",
+		"categoria" : "Aluno",
+		"poder" : 20,
+		"Soco Mais forte" : 25,
+		"vida" : 200,
+		"defesa" : 12,
+		"Inspercash" : 100
+	}
+]
