@@ -1,3 +1,5 @@
+#coding=UTF-8
+
 import json
 import tkinter as menu
 import time
@@ -43,15 +45,116 @@ class Inspermon():
 
 
         def visualiza_Insperdex(dex):
-            print("Inspermon : {0}".format(dex["nome"]))
+            print("Inspermon : {0}".format(dex["Inspermon"]))
+            time.sleep(1)
             print("categoria : {0}".format(dex["categoria"]))
+            time.sleep(1)
             print("poder = {0}".format(dex["poder"]))
-            print("soco mais forte = {0}".format(dex["Soco Mais forte"]))
+            time.sleep(1)
+            print("Soco Mais forte = {0}".format(dex["Soco Mais forte"]))
+            time.sleep(1)
             print("vida = {0}".format(dex["vida"]))
+            time.sleep(1)
             print("defesa = {0}".format(dex["defesa"]))
+            time.sleep(1)
             print("Situacao : {0}\n".format(dex["Situacao"]))
-            
-        
+
+
+        def mostra_loja(insper_loja):
+            print("Produto : {0}".format(insper_loja["nome"]))
+            print("Inspercash : {0}\n".format(insper_loja["inspercash"]))
+            time.sleep(2)
+
+        def mostra_arsenal(products):
+            print("Produto : {0}".format(products["produto"]))
+            print("Quantidade : {0}\n".format(products["quantidade"]))
+            time.sleep(2)
+
+
+        meus_produtos = {}
+
+
+        def verifica_qtde():
+            posicao = produto-1
+            for i in range(len(meus_produtos)):
+                if meus_produtos[i]["produto"]==InsperStore[posicao]["nome"]:
+                    meus_produtos[i]["quantidade"]=meus_produtos[i]["quantidade"]+1
+                else:
+                    meus_produtos.update({'produto' : 'Energetico'})
+                    meus_produtos.update({'quantidade' : 1})
+                    print("Produto adicionado ao seu arsenal")
+            save_only_arsenal()
+
+
+        def pos_mostraloja():
+            print("Você deseja adquirir algum produto? Lembre-se: Os produtos aqui expostos são muito poderosos contra tipos específicos de monstros!")
+            time.sleep(4)
+            print("Se, no momento da batalha contra um destes monstros, você detiver o produto certo em seu arsenal, você terá a opção de vencer o monstro sem precisar lutar!")
+            time.sleep(4)
+            print("Aproveite!")
+            comprar = input("Digite 1 para comprar algum produto, ou avance o jogo por meio do menu principal!")
+            while True:
+                if comprar=="1":
+                    produto = input("Qual produto desejas?\nDigite 1 para 'Energético'\n2 para 'Café Mega Power'\n3 para 'Noite de sono de mais de 8h'\n4 para 'Exercício milimetralmente bem feito'\nOu 5 para 'Prova impecável'")
+                    if produto=="1":
+                        if Inspermon_principal[0]["Inspercash"]>=InsperStore[0]["inspercash"]:
+                            Inspermon_principal[0]["Inspercash"]=Inspermon_principal[0]["Inspercash"]-InsperStore[0]["inspercash"]
+                            meus_produtos.update({'produto' : 'Energetico'})
+                            meus_produtos.update({'quantidade' : 1})
+                            print("Produto adicionado ao seu arsenal")
+                            save_only_arsenal()
+                            break
+                        else:
+                            print("Você não possui Inspercash suficiente para adquirir esse produto!")
+                            break
+                    elif produto=="2":
+                        if Inspermon_principal[0]["Inspercash"]>=InsperStore[1]["inspercash"]:
+                            Inspermon_principal[0]["Inspercash"]=Inspermon_principal[0]["Inspercash"]-InsperStore[0]["inspercash"]
+                            meus_produtos.update({'produto' : 'Cafe Mega Power'})
+                            meus_produtos.update({'quantidade' : 1})
+                            print("Produto adicionado ao seu arsenal")
+                            save_only_arsenal()
+                            break
+                        else:
+                            print("Você não possui Inspercash suficiente para adquirir esse produto!")
+                            break
+                    elif produto=="3":
+                        if Inspermon_principal[0]["Inspercash"]>=InsperStore[2]["inspercash"]:
+                            Inspermon_principal[0]["Inspercash"]=Inspermon_principal[0]["Inspercash"]-InsperStore[0]["inspercash"]
+                            meus_produtos.update({'produto' : 'Energetico'})
+                            meus_produtos.update({'quantidade' : 1})
+                            print("Produto adicionado ao seu arsenal")
+                            save_only_arsenal()
+                            break
+                        else:
+                            print("Você não possui Inspercash suficiente para adquirir esse produto!")
+                            break
+                    elif produto=="4":
+                        if Inspermon_principal[0]["Inspercash"]>=InsperStore[3]["inspercash"]:
+                            Inspermon_principal[0]["Inspercash"]=Inspermon_principal[0]["Inspercash"]-InsperStore[0]["inspercash"]
+                            meus_produtos.update({'produto' : 'Exercicio milimetralmente bem feito'})
+                            meus_produtos.update({'quantidade' : 1})
+                            print("Produto adicionado ao seu arsenal")
+                            save_only_arsenal()
+                            break
+                        else:
+                            print("Você não possui Inspercash suficiente para adquirir esse produto!")
+                            break
+                    elif produto=="5":
+                        if Inspermon_principal[0]["Inspercash"]>=InsperStore[4]["inspercash"]:
+                            Inspermon_principal[0]["Inspercash"]=Inspermon_principal[0]["Inspercash"]-InsperStore[0]["inspercash"]
+                            meus_produtos.update({'produto' : 'Prova impecavel'})
+                            meus_produtos.update({'quantidade' : 1})
+                            print("Produto adicionado ao seu arsenal")
+                            save_only_arsenal()
+                            break
+                        else:
+                            print("Você não possui Inspercash suficiente para adquirir esse produto!")
+                            break
+                    else:
+                        comprar = input("Opção inválida! Por favor, digite novamente!")
+
+
    
         with open('inspermons_listacompleta.json') as arquivo:
             inspermons = json.load(arquivo)
@@ -77,33 +180,55 @@ class Inspermon():
             Inspèrdex = json.load(arquivo)
             
 
+        with open('meus_produtos.json') as arquivo:
+            arsenal = json.load(arquivo)
+
+
+        def m_arsenal():
+            for products in arsenal:
+                mostra_arsenal(products)
+
         def mostra_insperdex():
-            for dex in self.Inspèrdex:
+            for dex in Inspèrdex:
                 visualiza_Insperdex(dex)
 
 
         def main():
             """DAR BOAS VINDAS AO JOGADOR"""
 
-            Nome_jogador=str(input("Selecione o nome do seu personagem  "))
-            print("\n\nOla, {0}".format(Nome_jogador))
+            Nome_jogador=str(input("Digite o nome do seu Inspermon:  "))
+            print("\n\nOlá, {0}".format(Nome_jogador))
             if input()=="":
-                print("\nBem vindo ao inspermon!! ")
+                print("\nSeja bem vindo(a) ao Inspermon!!")
             if input()=="":
-                print("Antes de adentrar o Insper, voce deve estar ciente das regras do jogo ")
+                print("Antes de adentrar o majestoso império Insper, como somos camaradas, lhe deixaremos a par das regras do jogo!")
             if input()=="":
-                print("Funciona assim cada dia de insper voce podera escolher \noque voce gostaria de fazer: \n   Por exemplo passear \n   Ou ir dormir um pouco")
+                print("Consiste no seguinte:\nA cada nova jogada, você deve escolher o que quer fazer:")
             if input()=="":
-                print("Logico cada ponto tem suas vantagens.\n Se voce escolher passear, voce melhora suas capacidades.\n Ja se voce decidir domir voce recupera sua vida.")
+                print("Passear pelos mágicos corredores do império...")
             if input()=="":
-                print("Porem o jogo nao e tao facil assim!!\n Ao caminhar pelo Insper voce podera se deparar com outros Inspermons e tera de batalhar com eles.")
+                print("Ou dormir um pouco para recarregar suas energias!")
             if input()=="":
-                print("Voce esta preparado?? Se sim, digite 1 para se aventurar nessa arriscada jornada pelo majestoso império Insper!")
+                print("Como toda escolha que fazemos na vida, cada uma das opções tem suas vantagens.")
+            if input()=="":
+                print("Se escolher passear e encontrar algum monstro vagando pelos corredores, você deverá guerrear com ele, caso queira salvar a própria pele, é claro!")
+            if input()=="":    
+                print("E, nesse caso, nós te aconselhamos a vencer, pois, assim, você vai ganhando experiência até subir de nível e, posteriormente, melhorar suas capacidades vitais!")
+            if input()=="": 
+                print("Agora, se voce decidir dormir, você recupera a sua vida, parcialmente perdida durante as batalhas.")
+            if input()=="":
+                print("Você esta preparado(a)?? Se sim, digite 1 para se aventurar nessa arriscada jornada pelo majestoso império Insper!\nCaso tenha amarelado, digite 2 para deixar o jogo!")
+            if input()=="1":
+                print("Boa Sorte! Que os jogos comecem!")
+                time.sleep(2)
+                sorte()
+            if input()=="2":
+                exit()
 
+        def exit():
+            self.window.destroy()
 
         add_Inspèrdex = {}
-
-
 
         def save():
             with open('principal.json', 'w') as arquivo1:
@@ -111,19 +236,34 @@ class Inspermon():
             with open('inspèrdex.json','w') as arquivo2:
                 Inspèrdex.append(add_Inspèrdex)
                 json.dump(Inspèrdex, arquivo2)
+            with open('meus_produtos.json', 'w') as arquivo3:
+                arsenal.append(meus_produtos)
+                json.dump(arsenal, arquivo3)
             print("Programa Salvo!")
-            self.window.destroy()
+            time.sleep(1)
+            exit()
+
+
+        def save_only_arsenal():
+            with open('meus_produtos.json', 'w') as arquivo3:
+                arsenal.append(meus_produtos)
+                json.dump(arsenal, arquivo3)
+
+
+
+        with open('insperstore.json') as arquivo:
+            InsperStore = json.load(arquivo)
 
         
         def mostra_insperStore():
-            insperstore = {'Café Mega Power' : 15, 'Energético' : 10, 'Exercício milimetralmente bem feito' : 45, 'Prova impecável' : 100, 'Noite de sono de mais de 8h' : 30}
-            print(insperstore)
+            for insper_loja in InsperStore:
+                mostra_loja(insper_loja)
+            pos_mostraloja()
 
-        #def regenera_vida()
             
 
         def dormir():
-            print("Sua vida esta regenerando!")
+            print("Sua vida está regenerando!")
             print("...")
             time.sleep(2)
             vida_completa = 200
@@ -153,11 +293,6 @@ class Inspermon():
 
 
         self.oponente = random.randint(1, len(inspermons)-1)
-
-
-
-        def mostra_insperdex():
-            print(Inspèrdex)
         
         
         def batalha():
@@ -223,7 +358,7 @@ class Inspermon():
                             print("\nRECUPEROU VIDA", player_move, " Recuperar vida.")
                             time.sleep(2)
                         elif player_move in ("4", "Fugir da Batalha"):
-                            player_move= moves_player["Fugir da Batalha"]
+                            player_move = moves_player["Fugir da Batalha"]
                             print("\nVoce Conseguiu ", " Fugir da Batalha.")
                             time.sleep(2)
                             break
@@ -318,7 +453,7 @@ class Inspermon():
                 dict_linha1 = {"Inspermon" : "{0}".format(inspermons[self.oponente]['nome']),} 
                 dict_linha2 = {"categoria" : "{0}".format(inspermons[self.oponente]["categoria"]),}
                 dict_linha3 = {"poder" : "{0}".format(inspermons[self.oponente]["poder"]),}
-                dict_linha4 = {"soco mais forte" : "{0}".format(inspermons[self.oponente]["Soco Mais forte"]),}
+                dict_linha4 = {"Soco Mais forte" : "{0}".format(inspermons[self.oponente]["Soco Mais forte"]),}
                 dict_linha5 = {"vida" : "{0}".format(inspermons[self.oponente]["vida"]),} 
                 dict_linha6 = {"defesa" : "{0}".format(inspermons[self.oponente]["defesa"]),}
                 dict_linha7 = {"Situacao" : "DERROTADO"}
@@ -336,7 +471,7 @@ class Inspermon():
                 dict2_linha1 = {"Inspermon" : "{0}".format(inspermons[self.oponente]['nome']),} 
                 dict2_linha2 = {"categoria" : "{0}".format(inspermons[self.oponente]["categoria"]),}
                 dict2_linha3 = {"poder" : "{0}".format(inspermons[self.oponente]["poder"]),}
-                dict2_linha4 = {"soco mais forte" : "{0}".format(inspermons[self.oponente]["Soco Mais forte"]),}
+                dict2_linha4 = {"Soco Mais forte" : "{0}".format(inspermons[self.oponente]["Soco Mais forte"]),}
                 dict2_linha5 = {"vida" : "{0}".format(inspermons[self.oponente]["vida"]),} 
                 dict2_linha6 = {"defesa" : "{0}".format(inspermons[self.oponente]["defesa"]),}
                 dict2_linha7 = {"Situacao" : "DERROTADO"}
@@ -424,12 +559,12 @@ class Inspermon():
 
         for i in range(2,len(condicao_sobenivel)+2):
             if aparicoes==sorted(aparicoes) and aparicoes==condicao_sobenivel[i-2]:
-                Inspermon_principal[0]['nivel']==i
+                Inspermon_principal[0]['nivel']=i
                 print("PARABÉNS, VOCÊ SUBIU DE NÍVEL! AGORA VOCÊ FAZ PARTE DO SELETO GRUPO DE INSPERMONS QUE JÁ CONSEGUIRAM CHEGAR AO %dº NÍVEL!!!" %(i))
                 if i in multiples:
-                    Inspermon_principal[0]['poder']==Inspermon_principal[0]['poder']+100
-                    Inspermon_principal[0]['Soco Mais forte']==Inspermon_principal[0]['Soco Mais forte']+105
-                    Inspermon_principal[0]['defesa']==Inspermon_principal[0]['defesa']+50
+                    Inspermon_principal[0]['poder']=Inspermon_principal[0]['poder']+100
+                    Inspermon_principal[0]['Soco Mais forte']=Inspermon_principal[0]['Soco Mais forte']+105
+                    Inspermon_principal[0]['defesa']=Inspermon_principal[0]['defesa']+50
                 if i==(len(condicao_sobenivel)+2):
                     print("ORRA! REALMENTE ESTAMOS DIANTE DE UM(A) GRANDE GUERREIRO(A)!")
                     time.sleep(2)
@@ -463,6 +598,10 @@ class Inspermon():
         self.jogadorprincipal.configure(text='Verificar meu Inspermon')
         self.jogadorprincipal.configure(command=jogador_principal)
         self.jogadorprincipal.grid()
+        self.arsenal = menu.Button(self.window)
+        self.arsenal.configure(text='Meu Arsenal')
+        self.arsenal.configure(command=m_arsenal)
+        self.arsenal.grid()
         self.ver_personagens = menu.Button(self.window)
         self.ver_personagens.configure(text='Personagens')
         self.ver_personagens.configure(command=personagens)
