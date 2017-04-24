@@ -1,0 +1,22 @@
+[
+	{
+		"nome" : "Energetico", 
+		"inspercash" : 10
+	},
+	{
+		"nome" : "Cafe Mega Power", 
+		"inspercash" : 15 
+	},
+	{
+		"nome" : "Noite de sono de mais de 8h", 
+		"inspercash" : 30
+	},
+	{
+		"nome" : "Exercicio milimetralmente bem feito", 
+		"inspercash" : 45 
+	},
+	{
+		"nome" : "Prova impecavel", 
+		"inspercash" : 100 
+	}
+]
