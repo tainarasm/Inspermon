@@ -2,13 +2,36 @@ import json
 import tkinter as menu
 import time
 import random
+import math
 
 
     
 
 
-class Inspermon:
+class Inspermon():
+    
     def __init__(self):
+       
+        
+        def mostra_jogadorprincipal(jog_principal):
+            print("Inspermon : {0}".format(jog_principal["nome"]))
+            time.sleep(1)
+            print("categoria : {0}".format(jog_principal["categoria"]))
+            time.sleep(1)
+            print("poder = {0}".format(jog_principal["poder"]))
+            time.sleep(1)
+            print("soco mais forte = {0}".format(jog_principal["Soco Mais forte"]))
+            time.sleep(1)
+            print("vida = {0}".format(jog_principal["vida"]))
+            time.sleep(1)
+            print("defesa = {0}".format(jog_principal["defesa"]))
+            time.sleep(1)
+            print("nível = {0}".format(jog_principal["nivel"]))
+            time.sleep(1)
+            print("Inspercash = {0}\n".format(jog_principal["Inspercash"]))
+
+
+
         def mostra_ipmon(ipmon):
             print("Inspermon : {0}".format(ipmon["nome"]))
             print("categoria : {0}".format(ipmon["categoria"]))
@@ -16,42 +39,82 @@ class Inspermon:
             print("soco mais forte = {0}".format(ipmon["Soco Mais forte"]))
             print("vida = {0}".format(ipmon["vida"]))
             print("defesa = {0}\n".format(ipmon["defesa"]))
-
-        def mostra_jogadorprincipal(jog_principal):
-            print("Inspermon : {0}".format(jog_principal["nome"]))
-            print("categoria : {0}".format(jog_principal["categoria"]))
-            print("poder = {0}".format(jog_principal["poder"]))
-            print("soco mais forte = {0}".format(jog_principal["Soco Mais forte"]))
-            print("vida = {0}".format(jog_principal["vida"]))
-            print("defesa = {0}".format(jog_principal["defesa"]))
-            print("Inspercash = {0}\n".format(jog_principal["Inspercash"]))
+            time.sleep(3)
 
 
+        def visualiza_Insperdex(dex):
+            print("Inspermon : {0}".format(dex["nome"]))
+            print("categoria : {0}".format(dex["categoria"]))
+            print("poder = {0}".format(dex["poder"]))
+            print("soco mais forte = {0}".format(dex["Soco Mais forte"]))
+            print("vida = {0}".format(dex["vida"]))
+            print("defesa = {0}".format(dex["defesa"]))
+            print("Situacao : {0}\n".format(dex["Situacao"]))
+            
+        
+   
+        with open('inspermons_listacompleta.json') as arquivo:
+            inspermons = json.load(arquivo)
+
+
+        def personagens():
+            for ipmon in inspermons:
+                mostra_ipmon(ipmon)
+        
+
+    
         with open('principal.json') as arquivo:
             Inspermon_principal = json.load(arquivo)
+
+
+        def jogador_principal():
             for jog_principal in Inspermon_principal:
                 mostra_jogadorprincipal(jog_principal)
 
-        with open('inspermons_listacompleta.json') as arquivo:
-            inspermons = json.load(arquivo)
-            for ipmon in inspermons:
-                mostra_ipmon(ipmon)
 
+        
         with open('inspèrdex.json') as arquivo:
             Inspèrdex = json.load(arquivo)
-            for ipmon in Inspèrdex:
-                mostra_ipmon(ipmon)
+            
+
+        def mostra_insperdex():
+            for dex in self.Inspèrdex:
+                visualiza_Insperdex(dex)
+
+
+        def main():
+            """DAR BOAS VINDAS AO JOGADOR"""
+
+            Nome_jogador=str(input("Selecione o nome do seu personagem  "))
+            print("\n\nOla, {0}".format(Nome_jogador))
+            if input()=="":
+                print("\nBem vindo ao inspermon!! ")
+            if input()=="":
+                print("Antes de adentrar o Insper, voce deve estar ciente das regras do jogo ")
+            if input()=="":
+                print("Funciona assim cada dia de insper voce podera escolher \noque voce gostaria de fazer: \n   Por exemplo passear \n   Ou ir dormir um pouco")
+            if input()=="":
+                print("Logico cada ponto tem suas vantagens.\n Se voce escolher passear, voce melhora suas capacidades.\n Ja se voce decidir domir voce recupera sua vida.")
+            if input()=="":
+                print("Porem o jogo nao e tao facil assim!!\n Ao caminhar pelo Insper voce podera se deparar com outros Inspermons e tera de batalhar com eles.")
+            if input()=="":
+                print("Voce esta preparado?? Se sim, digite 1 para se aventurar nessa arriscada jornada pelo majestoso império Insper!")
+
+
+        add_Inspèrdex = {}
+
 
 
         def save():
-            with open('principal.json', 'w') as arquivo:
-                for linha in range(len(Inspermon_principal)):
-                    arquivo.write("%s\n" %Inspermon_principal[linha])
-            with open('inspèrdex.py','w') as arquivo:
-                for linha in range(len(Inspèrdex)):
-                    arquivo.write("%s\n" %Inspèrdex[linha])
-            return None
+            with open('principal.json', 'w') as arquivo1:
+                json.dump(Inspermon_principal, arquivo1)
+            with open('inspèrdex.json','w') as arquivo2:
+                Inspèrdex.append(add_Inspèrdex)
+                json.dump(Inspèrdex, arquivo2)
+            print("Programa Salvo!")
+            self.window.destroy()
 
+        
         def mostra_insperStore():
             insperstore = {'Café Mega Power' : 15, 'Energético' : 10, 'Exercício milimetralmente bem feito' : 45, 'Prova impecável' : 100, 'Noite de sono de mais de 8h' : 30}
             print(insperstore)
@@ -63,29 +126,44 @@ class Inspermon:
             print("Sua vida esta regenerando!")
             print("...")
             time.sleep(2)
+            vida_completa = 200
+            if Inspermon_principal[0]['vida']==vida_completa:
+                print("Vida completamente carregada! Você está pronto para outra!")
+            else:
+                while Inspermon_principal[0]['vida']<vida_completa:
+                    time.sleep(2)
+                    Inspermon_principal[0]['vida'] = Inspermon_principal[0]['vida'] + 1
+                    print(Inspermon_principal[0]['vida'])
             
-            time.sleep(3)
-            return Inspermon_principal['vida']
+
+            
 
         def escolher_andar():
             andar = input("Para qual andar deseja ir?\nDigite 0 para permanecer no térreo\n1 para 1º andar\n2 para 2º andar\n3 para 3º andar\n4 para 4º andar\n5 para 5º andar\n")
             time.sleep(3)
-            if andar=="0":
-                print("Você está no térreo")
-            elif andar=="1" or andar=="2" or andar=="3" or andar=="4" or andar=="5":
-                print("Você está no %sº andar" %andar)
-            else:
-                andar = input("Andar não identificado, por favor digite um número de 0 a 5 para escolher o andar desejado")
-
-
-        oponente = random.randint(1, len(inspermons)-1)
-
-        
-        def batalha(oponente):
             while True:
-                winner = None
-                player_health = Inspermon_principal[0]['vida']
-                computer_health = inspermons[oponente]['vida']
+                if andar=="0":
+                    print("Você está no térreo")
+                    sorte()
+                elif andar=="1" or andar=="2" or andar=="3" or andar=="4" or andar=="5":
+                    print("Você está no %sº andar" %andar)
+                    sorte()
+                else:
+                    andar = input("Andar não identificado, por favor digite um número de 0 a 5 para escolher o andar desejado\n")
+
+
+        self.oponente = random.randint(1, len(inspermons)-1)
+
+
+
+        def mostra_insperdex():
+            print(Inspèrdex)
+        
+        
+        def batalha():
+            winner = None
+            player_health = Inspermon_principal[0]['vida']
+            computer_health = inspermons[self.oponente]['vida']
 
         # determina quem joga segunda linha
             turn = random.randint(1,2) # 50%
@@ -108,13 +186,13 @@ class Inspermon:
                 miss = False
 
             # dicionario
-                moves_player = {"Soco": Inspermon_principal[0]['poder'] - inspermons[oponente]['defesa'],
-                     "Soco Mais forte": Inspermon_principal[0]['Soco Mais forte'] - inspermons[oponente]['defesa'],
-                     "Recuperar vida": random.randint(Inspermon_principal[0]['vida']*0.1,Inspermon_principal[0]['vida']*0.15 ),
+                moves_player = {"Soco": Inspermon_principal[0]['poder'] - inspermons[self.oponente]['defesa'],
+                     "Soco Mais forte": Inspermon_principal[0]['Soco Mais forte'] - inspermons[self.oponente]['defesa'],
+                     "Recuperar vida": random.uniform(Inspermon_principal[0]['vida']*0.1,Inspermon_principal[0]['vida']*0.15 ),
                      "Fugir da Batalha": winner==None}
-                moves_computer = {"Soco": inspermons[oponente]['poder'] - Inspermon_principal[0]['defesa'],
-                     "Soco Mais forte": inspermons[oponente]['Soco Mais forte'] - Inspermon_principal[0]['defesa'],
-                     "Recuperar vida": random.randint(Inspermon_principal[0]['vida']*0.1,Inspermon_principal[0]['vida']*0.15)}             
+                moves_computer = {"Soco": inspermons[self.oponente]['poder'] - Inspermon_principal[0]['defesa'],
+                     "Soco Mais forte": inspermons[self.oponente]['Soco Mais forte'] - Inspermon_principal[0]['defesa'],
+                     "Recuperar vida": random.uniform(Inspermon_principal[0]['vida']*0.1,Inspermon_principal[0]['vida']*0.15)}             
                 if player_turn:
                     print("\nSelecione seu movimento :\n1. Soco (damage equivalente a seu poder)\n2. Soco Mais Forte (equivalente a seu poder + 5 de dano)\n3. Recuperar Vida (Voce pode recuperar de 10 a 15 de sua vida)\n4. Fugir da Batalha (20% de chance de fuga)\n")
 
@@ -212,8 +290,8 @@ class Inspermon:
                             player_health = Inspermon_principal[0]['vida'] #vida nao passa do maximo
                     else:
                         computer_health += computer_move
-                        if computer_health > inspermons[oponente]['vida']:
-                            computer_health = inspermons[oponente]['vida']
+                        if computer_health > inspermons[self.oponente]['vida']:
+                            computer_health = inspermons[self.oponente]['vida']
                 else:
                     if player_turn:
                         computer_health -= player_move
@@ -237,44 +315,142 @@ class Inspermon:
         # quando acabar printar vencedor
 
             if winner == "Player":
+                dict_linha1 = {"Inspermon" : "{0}".format(inspermons[self.oponente]['nome']),} 
+                dict_linha2 = {"categoria" : "{0}".format(inspermons[self.oponente]["categoria"]),}
+                dict_linha3 = {"poder" : "{0}".format(inspermons[self.oponente]["poder"]),}
+                dict_linha4 = {"soco mais forte" : "{0}".format(inspermons[self.oponente]["Soco Mais forte"]),}
+                dict_linha5 = {"vida" : "{0}".format(inspermons[self.oponente]["vida"]),} 
+                dict_linha6 = {"defesa" : "{0}".format(inspermons[self.oponente]["defesa"]),}
+                dict_linha7 = {"Situacao" : "DERROTADO"}
+                add_Inspèrdex.update(dict_linha1)
+                add_Inspèrdex.update(dict_linha2)
+                add_Inspèrdex.update(dict_linha3)
+                add_Inspèrdex.update(dict_linha4)
+                add_Inspèrdex.update(dict_linha5)
+                add_Inspèrdex.update(dict_linha6)
+                add_Inspèrdex.update(dict_linha7)
                 print("\nPlayer health: ", player_health, "Computer health: ", computer_health)
                 print("\nVOCE GANHOU!!! VOCE REALMENTE E DEMAIS!!")
                   
             else:
+                dict2_linha1 = {"Inspermon" : "{0}".format(inspermons[self.oponente]['nome']),} 
+                dict2_linha2 = {"categoria" : "{0}".format(inspermons[self.oponente]["categoria"]),}
+                dict2_linha3 = {"poder" : "{0}".format(inspermons[self.oponente]["poder"]),}
+                dict2_linha4 = {"soco mais forte" : "{0}".format(inspermons[self.oponente]["Soco Mais forte"]),}
+                dict2_linha5 = {"vida" : "{0}".format(inspermons[self.oponente]["vida"]),} 
+                dict2_linha6 = {"defesa" : "{0}".format(inspermons[self.oponente]["defesa"]),}
+                dict2_linha7 = {"Situacao" : "DERROTADO"}
+                add_Inspèrdex.update(dict2_linha1)
+                add_Inspèrdex.update(dict2_linha2)
+                add_Inspèrdex.update(dict2_linha3)
+                add_Inspèrdex.update(dict2_linha4)
+                add_Inspèrdex.update(dict2_linha5)
+                add_Inspèrdex.update(dict2_linha6)
+                add_Inspèrdex.update(dict2_linha7)
                 print("\nPlayer health: ", player_health, "Computer health: ", computer_health)
-                print("\nSEUS OPONENTE GANHOU!! MAIS SORTE DA PROXIMA VEZ!!.")
+                print("\nSEU OPONENTE GANHOU!! MAIS SORTE DA PROXIMA VEZ!!.")
+
+
+            Inspermon_principal[0]['vida']=player_health
+            
+
+            entrada = input("\nVOCE QUER CONTINUAR CAMINHANDO? SE SIM, PRESSIONE ENTER! CASO QUEIRA SALVAR O SEU ESTÁGIO ATUAL E SAIR DO JOGO, DIGITE 1!")
+            if entrada=="":
+                sorte()
+            elif entrada=="1":
+                save()
+
+
+        
+        def sorte():
+            encontra_jogador = random.randint(1,2)
+            print("Você está caminhando pelos mágicos corredores do Insper! O que será que está por vir?")
+            time.sleep(2)
+            print("...")
+            time.sleep(3)
+            if encontra_jogador == 2:
+                print("Prepare-se! Você acabou de encontrar o jogador %s! É hora de batalhar!" %(inspermons[self.oponente]['nome']))
+                time.sleep(5)
+                batalha()
+                return self.oponente
+            else:
+                print("UFA! Nenhum Inspermon à vista! O que deseja fazer agora? Digite 1 para continuar caminhando, 2 para pegar o elevador e ir para outro andar, 3 para acessar a InsperStore ou 4 para sair do jogo!")
+                while True:
+                    escolha = input()
+                    if escolha=="1":
+                        time.sleep(3)
+                        sorte()
+                    elif escolha=="2":
+                        time.sleep(3)
+                        escolher_andar()
+                    elif escolha=="3":
+                        time.sleep(3)
+                        mostra_insperStore()
+                    elif escolha=="4":
+                        save()
+                    else:
+                        escolha = input("Opção não reconhecida! Por favor, digite um número de 1 a 4! ")
+                return escolha
         
 
-            print("\nVOCE QUER CONTINUAR CAMINHANDO?")
+        def exponencial():
+            nivel_maximo = 51
+            lista_numeros = list(range(2,53))   
+            sobe_nivel = []
+            for i in range(1, nivel_maximo):
+                sobe_nivel.append(i+lista_numeros[i])
+            return sobe_nivel
 
-        def sorte(oponente):
-            encontra_jogador = random.randint(1,2)
-            if encontra_jogador == 1:
-                print("Você está caminhando pelos mágicos corredores do Insper! O que será que está por vir?")
-                time.sleep(2)
-                print("...")
-                time.sleep(3)
-                print("Prepare-se! Você acabou de encontrar o jogador %s! É hora de batalhar! Pressione enter para avançar!" %(inspermons[oponente]['nome']))
-                if input()=="":
-                    batalha(oponente)
-            else:
-                print("Você está caminhando pelos mágicos corredores do Insper! O que será que está por vir?")
-                print("...")
-                time.sleep(3)
-                print("UFA! Nenhum Inspermon à vista! O que deseja fazer agora? Digite 1 para continuar caminhando, 2 para pegar o elevador e ir para outro andar, 3 para acessar a InsperStore ou 4 para sair do jogo!")
-                escolha = input()
-                if escolha=="1":
-                    play_again=True
-                elif escolha=="2":
-                    escolher_andar()
-                elif escolha=="3":
-                    mostra_insperStore()
-                elif escolha=="4":
-                    save()
-                else:
-                    escolha = input("Opção não reconhecida! Por favor, digite um número de 1 a 4")
+        condicao_sobenivel = exponencial()
+
+        def descobre_qtde():
+            qtde_aparicoes = []
+            for i in range(len(Inspèrdex)):
+                if Inspèrdex[i]["Situacao"] == "DERROTADO":
+                    qtde_aparicoes.append(i)
+            return qtde_aparicoes
+
+
+        aparicoes = descobre_qtde()
+        
+        def evoluir_a_cada():
+            multiples = []
+            for i in range(1,26):
+                multiples.append(i*2)
+            return multiples
+
+        multiples = evoluir_a_cada()
+
+
+        for i in range(2,len(condicao_sobenivel)+2):
+            if aparicoes==sorted(aparicoes) and aparicoes==condicao_sobenivel[i-2]:
+                Inspermon_principal[0]['nivel']==i
+                print("PARABÉNS, VOCÊ SUBIU DE NÍVEL! AGORA VOCÊ FAZ PARTE DO SELETO GRUPO DE INSPERMONS QUE JÁ CONSEGUIRAM CHEGAR AO %dº NÍVEL!!!" %(i))
+                if i in multiples:
+                    Inspermon_principal[0]['poder']==Inspermon_principal[0]['poder']+100
+                    Inspermon_principal[0]['Soco Mais forte']==Inspermon_principal[0]['Soco Mais forte']+105
+                    Inspermon_principal[0]['defesa']==Inspermon_principal[0]['defesa']+50
+                if i==(len(condicao_sobenivel)+2):
+                    print("ORRA! REALMENTE ESTAMOS DIANTE DE UM(A) GRANDE GUERREIRO(A)!")
+                    time.sleep(2)
+                    print("A TUA GARRA E A TUA CORAGEM LHE TROUXERAM UMA GRANDE VITÓRIA:")
+                    time.sleep(5)
+                    print("VOCÊ ACABA DE VENCER O JOGO!")
+                    time.sleep(3)
+                    print("COMO PRÊMIO, VOCÊ ESTÁ SENDO COROADO(A) COMO O(A) MAIS NOVO(A) IMPERADOR(A) DO INSPER!!!")
+                    time.sleep(2)
+                    print("APROVEITE!")
+                    time.sleep(1)
+                    print("E ATÉ A PRÓXIMA!")
+                
+
+
 
         self.window = menu.Tk()
+        self.main = menu.Button(self.window)
+        self.main.configure(text='Apresentação')
+        self.main.configure(command=main)
+        self.main.grid()
         self.passear = menu.Button(self.window)
         self.passear.configure(text='Passear')
         self.passear.configure(command=sorte)
@@ -283,6 +459,18 @@ class Inspermon:
         self.dormir.configure(text='Dormir')
         self.dormir.configure(command=dormir)
         self.dormir.grid()
+        self.jogadorprincipal = menu.Button(self.window)
+        self.jogadorprincipal.configure(text='Verificar meu Inspermon')
+        self.jogadorprincipal.configure(command=jogador_principal)
+        self.jogadorprincipal.grid()
+        self.ver_personagens = menu.Button(self.window)
+        self.ver_personagens.configure(text='Personagens')
+        self.ver_personagens.configure(command=personagens)
+        self.ver_personagens.grid()
+        self.ver_insperdex = menu.Button(self.window)
+        self.ver_insperdex.configure(text='Inspèrdex')
+        self.ver_insperdex.configure(command=mostra_insperdex)
+        self.ver_insperdex.grid()
         self.conhecer_insperStore = menu.Button(self.window)
         self.conhecer_insperStore.configure(text='Conhecer InsperStore')
         self.conhecer_insperStore.configure(command=mostra_insperStore)
@@ -293,6 +481,7 @@ class Inspermon:
         self.salvar.grid()
 
         self.window.mainloop()
+        
 
 
 inicia_jogo = Inspermon()
