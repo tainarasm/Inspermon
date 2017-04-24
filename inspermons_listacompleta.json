@@ -2,113 +2,113 @@
 	{
 		"nome" : "Victor",
 		"categoria" : "Professor",
-		"poder" : 20,
-		"Soco Mais forte" : 25,
-		"vida" : 200,
-		"defesa" : 12
+		"poder" : 25,
+		"Soco Mais forte" : 30,
+		"vida" : 100,
+		"defesa" : 6
 	},
 	{
 		"nome" : "Daniel",
 		"categoria" : "Professor",
-		"poder" : 25,
-		"Soco Mais forte" : 30,
+		"poder" : 20,
+		"Soco Mais forte" : 25,
 		"vida" : 100,
-		"defesa" : 10
+		"defesa" : 8
 	},
 	{
 		"nome" : "Luciano",
 		"categoria" : "Professor",
-		"poder" : 20,
-		"Soco Mais forte" : 25,
-		"vida" : 200,
+		"poder" : 50,
+		"Soco Mais forte" : 55,
+		"vida" : 50,
 		"defesa" : 12
 	},
 	{
 		"nome" : "Pelicano",
 		"categoria" : "Professor",
-		"poder" : 10,
-		"Soco Mais forte" : 15,
-		"vida" : 500,
-		"defesa" : 8
+		"poder" : 30,
+		"Soco Mais forte" : 35,
+		"vida" : 80,
+		"defesa" : 10
 	},
 	{
 		"nome" : "Carareto",
 		"categoria" : "Professor",
-		"poder" : 15,
-		"Soco Mais forte" : 20,
-		"vida" : 300,
-		"defesa" : 10
+		"poder" : 20,
+		"Soco Mais forte" : 25,
+		"vida" : 50,
+		"defesa" : 18
 	},
 	{
 		"nome" : "Fernando",
 		"categoria" : "Professor",
-		"poder" : 15,
-		"Soco Mais forte" : 20,
+		"poder" : 30,
+		"Soco Mais forte" : 35,
 		"vida" : 300,
-		"defesa" : 10
+		"defesa" : 0
 	},
 	{
 		"nome" : "Ninja raivoso",
 		"categoria" : "Ninja com raiva",
 		"poder" : 15,
 		"Soco Mais forte" : 20,
-		"vida" : 300,
-		"defesa" : 10
+		"vida" : 100,
+		"defesa" : 8
 	},
 	{
 		"nome" : "Ninja de boa",
 		"categoria" : "Ninja sem raiva",
-		"poder" : 15,
-		"Soco Mais forte" : 20,
-		"vida" : 300,
-		"defesa" : 10
+		"poder" : 10,
+		"Soco Mais forte" : 15,
+		"vida" : 100,
+		"defesa" : 5
 	},
 	{
 		"nome" : "Monitor de laboratorio",
 		"categoria" : "Monitor",
-		"poder" : 15,
-		"Soco Mais forte" : 20,
-		"vida" : 300,
-		"defesa" : 10
+		"poder" : 45,
+		"Soco Mais forte" : 50,
+		"vida" : 40,
+		"defesa" : 6
 	},
 	{
 		"nome" : "Python",
 		"categoria" : "Programacao",
-		"poder" : 15,
-		"Soco Mais forte" : 20,
-		"vida" : 300,
-		"defesa" : 10
+		"poder" : 40,
+		"Soco Mais forte" : 45,
+		"vida" : 200,
+		"defesa" : 0
     },
 	{
 		"nome" : "Organizacao Estudantil",
 		"categoria" : "Entidade",
-		"poder" : 15,
-		"Soco Mais forte" : 20,
+		"poder" : 10,
+		"Soco Mais forte" : 15,
 		"vida" : 300,
-		"defesa" : 10
+		"defesa" : 0
     },
 	{
 		"nome" : "Ressaca insana pos festa",
 		"categoria" : "Festa",
-		"poder" : 15,
-		"Soco Mais forte" : 20,
-		"vida" : 300,
-		"defesa" : 10
+		"poder" : 100,
+		"Soco Mais forte" : 110,
+		"vida" : 10,
+		"defesa" : 0
     },
 	{
 		"nome" : "Semana de provas",
 		"categoria" : "Provas",
-		"poder" : 15,
-		"Soco Mais forte" : 20,
-		"vida" : 300,
-		"defesa" : 10
+		"poder" : 50,
+		"Soco Mais forte" : 55,
+		"vida" : 50,
+		"defesa" : 25
     },
     {
 		"nome" : "Aluno-Zumbi",
 		"categoria" : "Aluno modificado",
-		"poder" : 15,
-		"Soco Mais forte" : 20,
-		"vida" : 300,
+		"poder" : 25,
+		"Soco Mais forte" : 30,
+		"vida" : 100,
 		"defesa" : 10
     }
 ]
