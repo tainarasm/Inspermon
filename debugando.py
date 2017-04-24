@@ -248,6 +248,8 @@ class Inspermon():
             with open('meus_produtos.json', 'w') as arquivo3:
                 arsenal.append(meus_produtos)
                 json.dump(arsenal, arquivo3)
+            with open('principal.json', 'w') as arquivo1:
+                json.dump(Inspermon_principal, arquivo1)    
 
 
 
@@ -291,6 +293,10 @@ class Inspermon():
                 else:
                     andar = input("Andar não identificado, por favor digite um número de 0 a 5 para escolher o andar desejado\n")
 
+        
+        
+        valores_meusprodutos = meus_produtos.values()
+
 
         self.oponente = random.randint(1, len(inspermons)-1)
         
@@ -299,6 +305,7 @@ class Inspermon():
             winner = None
             player_health = Inspermon_principal[0]['vida']
             computer_health = inspermons[self.oponente]['vida']
+                    
 
         # determina quem joga segunda linha
             turn = random.randint(1,2) # 50%
@@ -474,7 +481,7 @@ class Inspermon():
                 dict2_linha4 = {"Soco Mais forte" : "{0}".format(inspermons[self.oponente]["Soco Mais forte"]),}
                 dict2_linha5 = {"vida" : "{0}".format(inspermons[self.oponente]["vida"]),} 
                 dict2_linha6 = {"defesa" : "{0}".format(inspermons[self.oponente]["defesa"]),}
-                dict2_linha7 = {"Situacao" : "DERROTADO"}
+                dict2_linha7 = {"Situacao" : "DERROTOU VOCE"}
                 add_Inspèrdex.update(dict2_linha1)
                 add_Inspèrdex.update(dict2_linha2)
                 add_Inspèrdex.update(dict2_linha3)
@@ -495,7 +502,7 @@ class Inspermon():
             elif entrada=="1":
                 save()
 
-
+        
         
         def sorte():
             encontra_jogador = random.randint(1,2)
@@ -506,7 +513,47 @@ class Inspermon():
             if encontra_jogador == 2:
                 print("Prepare-se! Você acabou de encontrar o jogador %s! É hora de batalhar!" %(inspermons[self.oponente]['nome']))
                 time.sleep(5)
-                batalha()
+                if inspermons[self.oponente]['categoria'] == "Professor":
+                    if "Prova impecavel" in valores_meusprodutos:
+                        print("Você possui a arma que automaticamente derrota um professor: a prova impecável! Quer encerrar a batalha mesmo sem lutar?")
+                        decisao = input("Se sim, digite 1! Se não, pressione enter para continuar!")
+                        if decisao=="1":
+                            batalha()
+
+
+                if inspermons[self.oponente]['categoria']== "Ninja com raiva":
+                    if "Exercicio milimetricamente bem feito" in valores_meusprodutos:
+                        print("Você possui a arma que automaticamente derrota um ninja raivoso: o exercício milimetricamente bem feito! Quer encerrar a batalha mesmo sem lutar?")
+                        decisao = input("Se sim, digite 1! Se não, pressione enter para continuar!")
+                        if decisao=="1":
+                            batalha()
+
+
+                if inspermons[self.oponente]['categoria']=="Festa":
+                    if "Cafe Mega Power" in valores_meusprodutos:
+                        print("Você possui a arma que automaticamente derrota uma ressaca insana pós festa: o café Mega Power! Quer encerrar a batalha mesmo sem lutar?")
+                        decisao = input("Se sim, digite 1! Se não, pressione enter para continuar!")
+                        if decisao=="1":
+                            batalha()
+            
+
+                if inspermons[self.oponente]['categoria']=="Provas":
+                    if "Energetico" in valores_meusprodutos:
+                        print("Você possui a arma que automaticamente derrota uma semana intensa de provas: o energético! Quer encerrar a batalha mesmo sem lutar?")
+                        decisao = input("Se sim, digite 1! Se não, pressione enter para continuar!")
+                        if decisao=="1":
+                            batalha()
+                
+
+                if inspermons[self.oponente]['categoria']=="Aluno modificado":
+                    if "Noite de sono de mais de 8h" in valores_meusprodutos:
+                        print("Você possui a arma que automaticamente derrota um aluno-zumbi: uma noite de sono bem dormida! Quer encerrar a batalha mesmo sem lutar?")
+                        decisao = input("Se sim, digite 1! Se não, pressione enter para continuar!")
+                        if decisao=="1":
+                            batalha()
+                
+                else:
+                    batalha()
                 return self.oponente
             else:
                 print("UFA! Nenhum Inspermon à vista! O que deseja fazer agora? Digite 1 para continuar caminhando, 2 para pegar o elevador e ir para outro andar, 3 para acessar a InsperStore ou 4 para sair do jogo!")
@@ -522,7 +569,7 @@ class Inspermon():
                         time.sleep(3)
                         mostra_insperStore()
                     elif escolha=="4":
-                        save()
+                        exit()
                     else:
                         escolha = input("Opção não reconhecida! Por favor, digite um número de 1 a 4! ")
                 return escolha
