@@ -15,7 +15,7 @@ class Inspermon():
     def __init__(self):
        
         
-        def mostra_jogadorprincipal(jog_principal):
+        def mostra_jogadorprincipal(jog_principal): #funções que carregam todos os arquivos necessários para a correta execução do jogo
             print("Inspermon : {0}".format(jog_principal["nome"]))
             time.sleep(1)
             print("categoria : {0}".format(jog_principal["categoria"]))
@@ -71,28 +71,96 @@ class Inspermon():
             time.sleep(2)
 
 
+        with open('inspermons_listacompleta.json') as arquivo:
+            inspermons = json.load(arquivo)
+
+
+        def personagens():
+            for ipmon in inspermons:
+                mostra_ipmon(ipmon)
+        
+
+        with open('principal.json') as arquivo:
+            Inspermon_principal = json.load(arquivo)
+
+
+        def jogador_principal():
+            for jog_principal in Inspermon_principal:
+                mostra_jogadorprincipal(jog_principal)
+
+
+        
+        with open('inspèrdex.json') as arquivo: #arquivo contém algumas informações, postas lá apenas para que ele não fosse aberto vazio, mas estas não interferem em momento algum na execução do jogo
+            Inspèrdex = json.load(arquivo)
+            
+
+        with open('meus_produtos.json') as arquivo: #o mesmo supracitado
+            arsenal = json.load(arquivo)
+
+
+        def m_arsenal():
+            for products in arsenal:
+                mostra_arsenal(products)
+
+        def mostra_insperdex():
+            for dex in Inspèrdex:
+                visualiza_Insperdex(dex)
+
+
+        with open('insperstore.json') as arquivo:
+            InsperStore = json.load(arquivo)
+
+        
+        def mostra_insperStore():
+            for insper_loja in InsperStore:
+                mostra_loja(insper_loja)
+            pos_mostraloja()
+
+        
         meus_produtos = {}
 
 
-        def verifica_qtde():
-            posicao = produto-1
-            for i in range(len(meus_produtos)):
-                if meus_produtos[i]["produto"]==InsperStore[posicao]["nome"]:
-                    meus_produtos[i]["quantidade"]=meus_produtos[i]["quantidade"]+1
-                else:
-                    meus_produtos.update({'produto' : 'Energetico'})
-                    meus_produtos.update({'quantidade' : 1})
-                    print("Produto adicionado ao seu arsenal")
-            save_only_arsenal()
+        def main():
+            """DAR BOAS VINDAS AO JOGADOR"""
+
+            Nome_jogador=str(input("Digite o nome do seu Inspermon:  "))
+            print("\n\nOlá, {0}".format(Nome_jogador))
+            if input()=="":
+                print("\nSeja bem vindo(a) ao Inspermon!!")
+            if input()=="":
+                print("Antes de adentrar o majestoso império Insper, como somos camaradas, lhe deixaremos a par das regras do jogo!")
+            if input()=="":
+                print("Consiste no seguinte:\nA cada nova jogada, você deve escolher o que quer fazer:")
+            if input()=="":
+                print("Passear pelos mágicos corredores do império...")
+            if input()=="":
+                print("Ou dormir um pouco para recarregar suas energias!")
+            if input()=="":
+                print("Como toda escolha que fazemos na vida, cada uma das opções tem suas vantagens.")
+            if input()=="":
+                print("Se escolher passear e encontrar algum monstro vagando pelos corredores, você deverá guerrear com ele, caso queira salvar a própria pele, é claro!")
+            if input()=="":    
+                print("E, nesse caso, nós te aconselhamos a vencer, pois, assim, você vai ganhando experiência até subir de nível e, posteriormente, melhorar suas capacidades vitais!")
+            if input()=="": 
+                print("Agora, se voce decidir dormir, você recupera a sua vida, parcialmente perdida durante as batalhas.")
+            if input()=="":
+                escolha = input("Você esta preparado(a)?? Se sim, digite 1 para se aventurar nessa arriscada jornada pelo majestoso império Insper!\nCaso tenha amarelado, digite 2 para deixar o jogo!")
+            if escolha=="1":
+                print("Boa Sorte! Que os jogos comecem!")
+                time.sleep(2)
+                sorte()
+            if escolha=="2":
+                exit()
 
 
-        def pos_mostraloja():
+
+        def pos_mostraloja(): #função que permite ao Inspermon adquirir itens da InsperStore
             print("Você deseja adquirir algum produto? Lembre-se: Os produtos aqui expostos são muito poderosos contra tipos específicos de monstros!")
             time.sleep(4)
             print("Se, no momento da batalha contra um destes monstros, você detiver o produto certo em seu arsenal, você terá a opção de vencer o monstro sem precisar lutar!")
             time.sleep(4)
             print("Aproveite!")
-            comprar = input("Digite 1 para comprar algum produto, ou avance o jogo por meio do menu principal!")
+            comprar = input("Digite 1 para comprar algum produto, ou avance o jogo por meio do menu principal!\n")
             while True:
                 if comprar=="1":
                     produto = input("Qual produto desejas?\nDigite 1 para 'Energético'\n2 para 'Café Mega Power'\n3 para 'Noite de sono de mais de 8h'\n4 para 'Exercício milimetralmente bem feito'\nOu 5 para 'Prova impecável'")
@@ -155,82 +223,9 @@ class Inspermon():
                         comprar = input("Opção inválida! Por favor, digite novamente!")
 
 
-   
-        with open('inspermons_listacompleta.json') as arquivo:
-            inspermons = json.load(arquivo)
-
-
-        def personagens():
-            for ipmon in inspermons:
-                mostra_ipmon(ipmon)
-        
-
-    
-        with open('principal.json') as arquivo:
-            Inspermon_principal = json.load(arquivo)
-
-
-        def jogador_principal():
-            for jog_principal in Inspermon_principal:
-                mostra_jogadorprincipal(jog_principal)
-
-
-        
-        with open('inspèrdex.json') as arquivo:
-            Inspèrdex = json.load(arquivo)
-            
-
-        with open('meus_produtos.json') as arquivo:
-            arsenal = json.load(arquivo)
-
-
-        def m_arsenal():
-            for products in arsenal:
-                mostra_arsenal(products)
-
-        def mostra_insperdex():
-            for dex in Inspèrdex:
-                visualiza_Insperdex(dex)
-
-
-        def main():
-            """DAR BOAS VINDAS AO JOGADOR"""
-
-            Nome_jogador=str(input("Digite o nome do seu Inspermon:  "))
-            print("\n\nOlá, {0}".format(Nome_jogador))
-            if input()=="":
-                print("\nSeja bem vindo(a) ao Inspermon!!")
-            if input()=="":
-                print("Antes de adentrar o majestoso império Insper, como somos camaradas, lhe deixaremos a par das regras do jogo!")
-            if input()=="":
-                print("Consiste no seguinte:\nA cada nova jogada, você deve escolher o que quer fazer:")
-            if input()=="":
-                print("Passear pelos mágicos corredores do império...")
-            if input()=="":
-                print("Ou dormir um pouco para recarregar suas energias!")
-            if input()=="":
-                print("Como toda escolha que fazemos na vida, cada uma das opções tem suas vantagens.")
-            if input()=="":
-                print("Se escolher passear e encontrar algum monstro vagando pelos corredores, você deverá guerrear com ele, caso queira salvar a própria pele, é claro!")
-            if input()=="":    
-                print("E, nesse caso, nós te aconselhamos a vencer, pois, assim, você vai ganhando experiência até subir de nível e, posteriormente, melhorar suas capacidades vitais!")
-            if input()=="": 
-                print("Agora, se voce decidir dormir, você recupera a sua vida, parcialmente perdida durante as batalhas.")
-            if input()=="":
-                print("Você esta preparado(a)?? Se sim, digite 1 para se aventurar nessa arriscada jornada pelo majestoso império Insper!\nCaso tenha amarelado, digite 2 para deixar o jogo!")
-            if input()=="1":
-                print("Boa Sorte! Que os jogos comecem!")
-                time.sleep(2)
-                sorte()
-            if input()=="2":
-                exit()
-
-        def exit():
-            self.window.destroy()
-
         add_Inspèrdex = {}
 
-        def save():
+        def save(): #função para salvar o jogo
             with open('principal.json', 'w') as arquivo1:
                 json.dump(Inspermon_principal, arquivo1)
             with open('inspèrdex.json','w') as arquivo2:
@@ -244,25 +239,14 @@ class Inspermon():
             exit()
 
 
-        def save_only_arsenal():
+        def save_only_arsenal(): #salva somente o arsenal do Inspermon e o valor do seu Inspercash atualizado
             with open('meus_produtos.json', 'w') as arquivo3:
                 arsenal.append(meus_produtos)
                 json.dump(arsenal, arquivo3)
 
-
-
-        with open('insperstore.json') as arquivo:
-            InsperStore = json.load(arquivo)
-
-        
-        def mostra_insperStore():
-            for insper_loja in InsperStore:
-                mostra_loja(insper_loja)
-            pos_mostraloja()
-
             
 
-        def dormir():
+        def dormir(): #define o que acontece se o Inspermon decide dormir
             print("Sua vida está regenerando!")
             print("...")
             time.sleep(2)
@@ -274,11 +258,13 @@ class Inspermon():
                     time.sleep(0.3)
                     Inspermon_principal[0]['vida'] = Inspermon_principal[0]['vida'] + 1
                     print(Inspermon_principal[0]['vida'])
+                if Inspermon_principal[0]['vida']==vida_completa:
+                    print("Vida completamente carregada! Você está pronto para outra!")
             
 
             
 
-        def escolher_andar():
+        def escolher_andar(): #função para trocar de andar dentro do Insper
             andar = input("Para qual andar deseja ir?\nDigite 0 para permanecer no térreo\n1 para 1º andar\n2 para 2º andar\n3 para 3º andar\n4 para 4º andar\n5 para 5º andar\n")
             time.sleep(3)
             while True:
@@ -295,7 +281,7 @@ class Inspermon():
         self.oponente = random.randint(1, len(inspermons)-1)
         
         
-        def batalha():
+        def batalha(): #define como se dá a batalha
             winner = None
             player_health = Inspermon_principal[0]['vida']
             computer_health = inspermons[self.oponente]['vida']
@@ -497,7 +483,7 @@ class Inspermon():
 
 
         
-        def sorte():
+        def sorte(): #define quando o Inspermon encontra outro Inspermon e qual dos Inspermóns da lista será seu oponente
             encontra_jogador = random.randint(1,2)
             print("Você está caminhando pelos mágicos corredores do Insper! O que será que está por vir?")
             time.sleep(2)
@@ -528,7 +514,7 @@ class Inspermon():
                 return escolha
         
 
-        def exponencial():
+        def exponencial(): #funções para definir quando subir de nível(a cada nível vai ficando mais difícil e o número de batalhas ganhas seguidas vezes tem de ser maior para que o jogador consiga alcançar o nível seguinte) e em que nível o jogador evolui
             nivel_maximo = 51
             lista_numeros = list(range(2,53))   
             sobe_nivel = []
@@ -578,7 +564,8 @@ class Inspermon():
                     time.sleep(1)
                     print("E ATÉ A PRÓXIMA!")
                 
-
+        def exit(): #função para fechar o jogo
+            self.window.destroy()
 
 
         self.window = menu.Tk()
